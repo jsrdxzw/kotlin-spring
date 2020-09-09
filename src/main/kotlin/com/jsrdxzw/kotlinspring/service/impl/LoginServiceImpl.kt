@@ -25,7 +25,7 @@ class LoginServiceImpl : LoginService {
 
     override fun register(userRegister: UserRegister): UserLoginVo {
         val user = userRepository.save(
-                User(username = userRegister.username,password = userRegister.password)
+                User(username = userRegister.username, password = userRegister.password.toMD5())
         )
         return UserLoginVo(username = user.username)
     }

@@ -9,6 +9,7 @@ import javax.persistence.*
  *@author xuzhiwei
  *@date 2020-09-07
  */
+@Entity
 @Table(name = "mall_user")
 data class User(
         @Id
@@ -21,7 +22,7 @@ data class User(
         @Column(nullable = true, length = 255)
         val email: String? = null,
         @Column(nullable = false, name = "created_time")
-        val createdTime: LocalDateTime? = null,
+        val createdTime: LocalDateTime = LocalDateTime.now(),
         @Column(nullable = false, name = "updated_time")
-        val updatedTime: LocalDateTime? = null
+        val updatedTime: LocalDateTime = LocalDateTime.now()
 )
